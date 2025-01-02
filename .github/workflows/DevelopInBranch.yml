@@ -9,3 +9,11 @@ jobs:
                 echo "workflow triggered in branch '${{ github.ref }}'."
                 echo "workflow triggered by event '${{ github.event_name }}'."
                 echo "workflow triggered by actor '${{ github.actor }}'."
+    job2:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
+        steps:
+            - uses: actions/checkout@v4.1.0
+            - uses: devops-actions/actionlint@v0.1.2
